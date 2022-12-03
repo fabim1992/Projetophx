@@ -16,6 +16,10 @@
           <ul>
             <%= if Pow.Plug.current_user(@conn) do %>
             <li>
+            <a href="pedidos" class="pedidos">
+            <img src={ Routes.static_path(@conn, "/images/carrinho.png")} width="50" height="60" /> </a>
+            </li>
+            <li>
             <%= @current_user.email %>
             </li>
             <li>
@@ -31,8 +35,8 @@
             <% end %>
           </ul>
         </nav>
-        <a href="https://phoenixframework.org/" class="phx-logo">
-          <img src={Routes.static_path(@conn, "/images/phoenix.png")} alt="Phoenix Framework Logo"/>
+        <a href="http://localhost:4000/" class="phx-logo">
+          <img src={Routes.static_path(@conn, "/images/guanabara.jpg")}  alt="Phoenix Framework Logo"/>
         </a>
       </section>
     </header>

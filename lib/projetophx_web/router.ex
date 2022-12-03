@@ -15,6 +15,11 @@ defmodule ProjetophxWeb.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :protected do
+    plug Pow.Plug.RequireAuthenticated,
+      error_handler: Pow.Phoenix.PlugErrorHandler
+  end
+
   scope "/" do
     pipe_through :browser
 
@@ -25,6 +30,14 @@ defmodule ProjetophxWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+
+
+  end
+
+  scope "/", ProjetophxWeb do
+    pipe_through [:browser, :protected]
+
+    resources "/produto", ProdutoController
   end
 
   # Other scopes may use custom stacks.

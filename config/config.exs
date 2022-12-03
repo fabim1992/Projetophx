@@ -53,4 +53,5 @@ import_config "#{config_env()}.exs"
 
 config :projetophx, :pow,
   user: Projetophx.Users.User,
-  repo: Projetophx.Repo
+  repo: Projetophx.Repo,
+  web_module: ProjetophxWeb
